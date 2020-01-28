@@ -1,0 +1,31 @@
+﻿@model MovieRental.ViewModel.MovieViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <table class="table table-hover">
+        <col width="5%">
+        <col width="95%">
+        <tr class="table-primary">
+            <th>ID</th>
+            <th>Title</th>
+        </tr>
+        @foreach (var Movie in Model.movieList)
+        {
+            <tr scope="row">
+                <td>@Movie.Id</td>
+                <td> 
+                    <a href="/Movies/view/@System.Convert.ToInt32(Movie.Id)">
+                    @Movie.Name
+                    </a>    
+                </td>
+                @if (Movie.Id != null)
+                {
+                    Console.WriteLine(Movie.Id);
+                }
+            </tr>
+        }
+
+    </table>
+
+
